@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MGZ Properties | Premium Student Housing in Binghamton</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F4F4F4;
+    --dark: #111111;
+    --green: #005A43;
+    --green-light: #00724F;
+    --green-pale: #E6F0ED;
+    --gold: #333333;
+    --gold-light: #555555;
+    --text-muted: #6B6B6B;
+    --border: #D8D8D8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(249,245,239,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--green);
+    letter-spacing: 0.01em;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--green); }
+
+  .nav-cta {
+    background: var(--green);
+    color: #fff !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 100px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--green-light) !important; color: #fff !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8rem 2rem 5rem;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(0,90,67,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(0,90,67,0.04) 0%, transparent 50%),
+      var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 400px; height: 400px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -120px; left: -120px;
+    width: 500px; height: 500px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    background: var(--green);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--dark);
+    max-width: 750px;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--green);
+  }
+
+  .hero p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--green);
+    color: #fff;
+    padding: 0.85rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--dark);
+    padding: 0.85rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border: 1.5px solid var(--border);
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .btn-secondary:hover { border-color: var(--dark); transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin-top: 4rem;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--green);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* SECTIONS */
+  section { padding: 6rem 2rem; }
+
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 560px;
+    font-weight: 300;
+  }
+
+  /* PROPERTIES */
+  #properties { background: #fff; }
+
+  .properties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+
+  .property-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    background: #ffffff;
+  }
+
+  .property-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  }
+
+  .property-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #c8d8b0 0%, #a8c080 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--green);
+    font-style: italic;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .property-img-placeholder {
+    width: 100%;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .img-icon {
+    width: 56px; height: 56px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img-icon svg { width: 28px; height: 28px; stroke: rgba(255,255,255,0.9); fill: none; stroke-width: 1.5; }
+
+  .property-badge {
+    position: absolute;
+    top: 1rem; left: 1rem;
+    background: var(--green);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+  }
+
+  .property-body { padding: 1.75rem; }
+
+  .property-address {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.25rem;
+  }
+
+  .property-city {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .property-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .price-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--green);
+  }
+
+  .price-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .property-specs {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .spec {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .spec svg { width: 18px; height: 18px; stroke: var(--green); fill: none; stroke-width: 1.5; }
+
+  .amenities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .amenity-tag {
+    background: rgba(45,80,22,0.08);
+    color: var(--green);
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    border: 1px solid rgba(45,80,22,0.15);
+  }
+
+  .lease-info {
+    background: var(--green-pale);
+    border: 1px solid rgba(0,90,67,0.15);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .lease-info p {
+    font-size: 0.85rem;
+    color: var(--dark);
+    font-weight: 400;
+  }
+
+  .lease-info strong { color: var(--green); }
+
+  .property-cta {
+    display: block;
+    text-align: center;
+    background: var(--green);
+    color: #fff;
+    padding: 0.85rem;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+  }
+
+  .property-cta:hover { background: var(--green-light); }
+
+  /* FEATURES */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    margin-top: 3.5rem;
+  }
+
+  .feature-card {
+    padding: 1.75rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: #fff;
+    transition: transform 0.2s;
+  }
+
+  .feature-card:hover { transform: translateY(-4px); }
+
+  .feature-icon {
+    width: 48px; height: 48px;
+    background: rgba(45,80,22,0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+
+  .feature-icon svg { width: 24px; height: 24px; stroke: var(--green); fill: none; stroke-width: 1.5; }
+
+  .feature-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 0.4rem;
+  }
+
+  .feature-card p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* LOCATION */
+  #location { background: var(--dark); color: #fff; }
+
+  #location .section-title { color: #fff; }
+  #location .section-sub { color: rgba(255,255,255,0.55); }
+
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3.5rem;
+    align-items: center;
+  }
+
+  .location-items { display: flex; flex-direction: column; gap: 1.5rem; }
+
+  .location-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .location-dot {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .location-dot svg { width: 18px; height: 18px; stroke: rgba(255,255,255,0.7); fill: none; stroke-width: 1.5; }
+
+  .location-item h4 { font-size: 0.95rem; font-weight: 500; color: #fff; margin-bottom: 0.2rem; }
+  .location-item p { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+
+  .map-placeholder {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    font-size: 0.9rem;
+  }
+
+  .map-placeholder svg { width: 36px; height: 36px; stroke: rgba(255,255,255,0.3); fill: none; stroke-width: 1.5; }
+
+  /* CONTACT */
+  #contact { background: var(--cream); }
+
+  .contact-wrapper {
+    max-width: 600px;
+    margin: 3.5rem auto 0;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-group { margin-bottom: 1.25rem; }
+
+  .form-group label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--dark);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--green);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 110px; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--green);
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    border-radius: 10px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover { background: var(--green-light); transform: translateY(-2px); }
+
+  .contact-note {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-top: 1rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.85rem;
+  }
+
+  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .properties-grid { grid-template-columns: 1fr; }
+    .location-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .hero-stats { gap: 2rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">MGZ Properties</a>
+  <ul class="nav-links">
+    <li><a href="#properties">Properties</a></li>
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="hero-tag">Now Renting 2027–2028</span>
+  <h1>Your home away from<br><em>home in Binghamton</em></h1>
+  <p>Fully furnished, utilities included, and minutes from campus. Premium student housing designed for how you actually live.</p>
+  <div class="hero-buttons">
+    <a href="#properties" class="btn-primary">View Properties</a>
+    <a href="#contact" class="btn-secondary">Get in Touch</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num">2</span>
+      <span class="stat-label">Properties</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">13</span>
+      <span class="stat-label">Bedrooms Total</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">$0</span>
+      <span class="stat-label">Utility Bills</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section id="properties">
+  <div class="container">
+    <span class="section-tag">Available Listings</span>
+    <h2 class="section-title">Two great homes,<br>one easy choice</h2>
+    <p class="section-sub">Both properties are fully furnished and utilities-included — just bring your stuff and move in.</p>
+
+    <div class="properties-grid">
+
+      <!-- Property 1 -->
+      <div class="property-card">
+        <div class="property-img" style="background: linear-gradient(135deg, #004535 0%, #006B52 100%);">
+          <div class="property-img-placeholder">
+            <div class="img-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <span style="font-family:'Playfair Display',serif; color:rgba(255,255,255,0.9); font-style:italic; font-size:0.9rem;">56 Walnut St</span>
+          </div>
+          <span class="property-badge">Now Renting</span>
+        </div>
+        <div class="property-body">
+          <p class="property-address">56 Walnut Street</p>
+          <p class="property-city">Binghamton, NY 13905</p>
+          <div class="property-price">
+            <span class="price-num">$870</span>
+            <span class="price-label">/ person / month · utilities included</span>
+          </div>
+          <div class="property-specs">
+            <div class="spec">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+              5 Bedrooms
+            </div>
+            <div class="spec">
+              <svg viewBox="0 0 24 24"><path d="M4 12h16M4 6h16M4 18h7"/></svg>
+              2 Bathrooms
+            </div>
+            <div class="spec">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              12-Month
+            </div>
+          </div>
+          <div class="amenities">
+            <span class="amenity-tag">Fully Furnished</span>
+            <span class="amenity-tag">Utilities Included</span>
+            <span class="amenity-tag">Smart TV</span>
+            <span class="amenity-tag">Outdoor Deck</span>
+            <span class="amenity-tag">Driveway Parking</span>
+            <span class="amenity-tag">Street Parking</span>
+            <span class="amenity-tag">Near Bus Line</span>
+            <span class="amenity-tag">Walk to Bars & Restaurants</span>
+          </div>
+          <div class="lease-info">
+            <p><strong>Lease:</strong> June 1, 2027 – May 23, 2028</p>
+            <p>10-minute drive to campus · Walk to downtown</p>
+          </div>
+          <a href="#contact" class="property-cta">Inquire About This Property</a>
+        </div>
+      </div>
+
+      <!-- Property 2 -->
+      <div class="property-card">
+        <div class="property-img" style="background: linear-gradient(135deg, #003D2E 0%, #005A43 100%);">
+          <div class="property-img-placeholder">
+            <div class="img-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <span style="font-family:'Playfair Display',serif; color:rgba(255,255,255,0.9); font-style:italic; font-size:0.9rem;">23 Seminary Ave</span>
+          </div>
+          <span class="property-badge">Now Renting</span>
+        </div>
+        <div class="property-body">
+          <p class="property-address">23 Seminary Avenue</p>
+          <p class="property-city">Binghamton, NY 13905</p>
+          <div class="property-price">
+            <span class="price-num">$870</span>
+            <span class="price-label">/ person / month · utilities included</span>
+          </div>
+          <div class="property-specs">
+            <div class="spec">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+              8 Bedrooms
+            </div>
+            <div class="spec">
+              <svg viewBox="0 0 24 24"><path d="M4 12h16M4 6h16M4 18h7"/></svg>
+              4 Bathrooms
+            </div>
+            <div class="spec">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              12-Month
+            </div>
+          </div>
+          <div class="amenities">
+            <span class="amenity-tag">Fully Furnished</span>
+            <span class="amenity-tag">Utilities Included</span>
+            <span class="amenity-tag">2 Full Kitchens</span>
+            <span class="amenity-tag">XL Common Areas</span>
+            <span class="amenity-tag">Flexible Layout</span>
+            <span class="amenity-tag">Near Bus Line</span>
+            <span class="amenity-tag">Walk to Bars & Restaurants</span>
+          </div>
+          <div class="lease-info">
+            <p><strong>Lease:</strong> Beginning June 1, 2027</p>
+            <p>Available as full 8-bed home <strong>or</strong> two separate 4-bed units</p>
+          </div>
+          <a href="#contact" class="property-cta">Inquire About This Property</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why-us" style="background: var(--cream);">
+  <div class="container">
+    <span class="section-tag">Why Choose Us</span>
+    <h2 class="section-title">Student living,<br>done right</h2>
+    <p class="section-sub">We handle the details so you can focus on what matters — school, friends, and everything else.</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>Utilities Included</h3>
+        <p>No surprise bills. Electric, heat, water — all covered in your monthly rent.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3>Move-In Ready</h3>
+        <p>Every room is fully furnished. Beds, desks, couches — all waiting for you.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <h3>Prime Location</h3>
+        <p>Walking distance to downtown bars, restaurants, and the campus bus line.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3>Group-Friendly</h3>
+        <p>Got a big friend group? 23 Seminary Ave can split into two separate 4-bed units.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>MGZ Properties</h3>
+        <p>Locally invested owners who respond quickly and keep properties well-maintained.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        </div>
+        <h3>Plan Ahead</h3>
+        <p>Secure your home early for the 2027–2028 year before spots fill up.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="container">
+    <span class="section-tag">Location</span>
+    <h2 class="section-title">Close to everything<br>that matters</h2>
+    <p class="section-sub">Both properties sit in the heart of the off-campus student scene in Binghamton.</p>
+
+    <div class="location-grid">
+      <div class="location-items">
+        <div class="location-item">
+          <div class="location-dot">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <h4>10 Minutes to Campus</h4>
+            <p>Quick drive to Binghamton University — easy for early morning classes.</p>
+          </div>
+        </div>
+        <div class="location-item">
+          <div class="location-dot">
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg>
+          </div>
+          <div>
+            <h4>Campus Bus Line Nearby</h4>
+            <p>Walk to the bus stop for a no-car option on days you need it.</p>
+          </div>
+        </div>
+        <div class="location-item">
+          <div class="location-dot">
+            <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <div>
+            <h4>Walk to Bars & Restaurants</h4>
+            <p>Downtown dining, coffee, and nightlife all within walking distance.</p>
+          </div>
+        </div>
+        <div class="location-item">
+          <div class="location-dot">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4>Binghamton, NY</h4>
+            <p>A vibrant college town with everything you need within reach.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="map-placeholder">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Binghamton, NY</span>
+        <span style="font-size:0.75rem; opacity:0.6;">Add your map embed here</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container" style="text-align: center;">
+    <span class="section-tag">Get in Touch</span>
+    <h2 class="section-title">Interested? Let's talk.</h2>
+    <p class="section-sub" style="margin: 0 auto;">Spots fill up fast. Reach out today and we'll get back to you quickly with next steps.</p>
+
+    <div class="contact-wrapper">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Jane">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Smith">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="jane@binghamton.edu">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="(555) 000-0000">
+      </div>
+      <div class="form-group">
+        <label>Property Interest</label>
+        <select>
+          <option value="">Select a property...</option>
+          <option>56 Walnut St — 5 Bedroom</option>
+          <option>23 Seminary Ave — 8 Bedroom (full home)</option>
+          <option>23 Seminary Ave — 4 Bedroom unit</option>
+          <option>Both / Not Sure Yet</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Tell us a bit about your group size, move-in timeline, or any questions you have..."></textarea>
+      </div>
+      <button class="form-submit" onclick="alert('Thanks for your interest! We\'ll be in touch soon.')">Send Inquiry</button>
+      <p class="contact-note">We typically respond within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 MGZ Properties · Binghamton, NY · <a href="mailto:hello@mgzproperties.com">hello@mgzproperties.com</a></p>
+</footer>
+
+</body>
+</html>
