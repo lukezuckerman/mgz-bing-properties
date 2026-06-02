@@ -291,9 +291,15 @@
     inset: 0;
     opacity: 0;
     transition: opacity 0.6s ease;
+    pointer-events: none;
+    z-index: 0;
   }
 
-  .gallery-slide.active { opacity: 1; }
+  .gallery-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+  }
 
   .gallery-slide img {
     width: 100%;
@@ -707,16 +713,16 @@
       <!-- Property 1 -->
       <div class="property-card">
         <div class="property-img" id="gallery1">
-          <div class="gallery-slide active"><img src="Walnut__1.jpeg" alt="56 Walnut St exterior" loading="lazy"></div>
-          <div class="gallery-slide"><img src="Walnut_Entry.webp" alt="Entry" loading="lazy"></div>
-          <div class="gallery-slide"><img src="Walnut_Dining_2.webp" alt="Dining room" loading="lazy"></div>
-          <div class="gallery-slide"><img src="Walnut_Living_1.webp" alt="Living room" loading="lazy"></div>
-          <div class="gallery-slide"><img src="Walnut_Living_2.webp" alt="Living room 2" loading="lazy"></div>
-          <div class="gallery-slide"><img src="Walnut_Bed_1.webp" alt="Bedroom 1" loading="lazy"></div>
-          <div class="gallery-slide"><img src="Walnut_Bed_2.webp" alt="Bedroom 2" loading="lazy"></div>
-          <div class="gallery-slide"><img src="Walnut_Bed_3.webp" alt="Bedroom 3" loading="lazy"></div>
-          <div class="gallery-slide"><img src="Walnut_Bathroom_1.webp" alt="Bathroom 1" loading="lazy"></div>
-          <div class="gallery-slide"><img src="Walnut_Bathroom_2.webp" alt="Bathroom 2" loading="lazy"></div>
+          <div class="gallery-slide active"><img src="walnut%201.webp" alt="56 Walnut St exterior" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut%20Entry.webp" alt="Entry" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut%20Dining%202.webp" alt="Dining room" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut%20Living%201.webp" alt="Living room" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut%20Living%202.webp" alt="Living room 2" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut%20Bed%201.webp" alt="Bedroom 1" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut%20Bed%202.webp" alt="Bedroom 2" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut%20Bed%203.webp" alt="Bedroom 3" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut%20Bathroom%201.webp" alt="Bathroom 1" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut%20Bathroom%202.webp" alt="Bathroom 2" loading="lazy"></div>
           <button class="gallery-btn prev" onclick="changeSlide('gallery1',-1)">&#8249;</button>
           <button class="gallery-btn next" onclick="changeSlide('gallery1',1)">&#8250;</button>
           <div class="gallery-dots" id="gallery1-dots"></div>
