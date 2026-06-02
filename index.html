@@ -707,7 +707,19 @@
       <!-- Property 1 -->
       <div class="property-card">
         <div class="property-img" id="gallery1">
-          <div class="gallery-slide active"><img src="23S%20Front.webp" alt="Property exterior" loading="lazy"></div>
+          <div class="gallery-slide active"><img src="Walnut__1.jpeg" alt="56 Walnut St exterior" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut_Entry.webp" alt="Entry" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut_Dining_2.webp" alt="Dining room" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut_Living_1.webp" alt="Living room" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut_Living_2.webp" alt="Living room 2" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut_Bed_1.webp" alt="Bedroom 1" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut_Bed_2.webp" alt="Bedroom 2" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut_Bed_3.webp" alt="Bedroom 3" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut_Bathroom_1.webp" alt="Bathroom 1" loading="lazy"></div>
+          <div class="gallery-slide"><img src="Walnut_Bathroom_2.webp" alt="Bathroom 2" loading="lazy"></div>
+          <button class="gallery-btn prev" onclick="changeSlide('gallery1',-1)">&#8249;</button>
+          <button class="gallery-btn next" onclick="changeSlide('gallery1',1)">&#8250;</button>
+          <div class="gallery-dots" id="gallery1-dots"></div>
           <span class="property-badge">Now Renting</span>
         </div>
         <div class="property-body">
@@ -1007,9 +1019,11 @@
     }
   }
 
+  initGallery('gallery1');
   initGallery('gallery2');
 
-  // Auto-advance gallery2
+  // Auto-advance both galleries
+  setInterval(() => changeSlide('gallery1', 1), 4500);
   setInterval(() => changeSlide('gallery2', 1), 4000);
 </script>
 </body>
