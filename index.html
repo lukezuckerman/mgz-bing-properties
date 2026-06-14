@@ -982,7 +982,7 @@
         <label>Message</label>
         <textarea id="message" placeholder="Tell us a bit about your group size, move-in timeline, or any questions you have..."></textarea>
       </div>
-      <button class="form-submit" onclick="alert('Thanks for your interest! We\'ll be in touch soon.')">Send Inquiry</button>
+      <button class="form-submit" type="submit" data-fs-submit-btn>Send Inquiry</button>
       <p class="contact-note">We typically respond within 24 hours.</p>
     </div>
   </div>
@@ -1035,6 +1035,10 @@
   setInterval(() => changeSlide('gallery2', 1), 4000);
 </script>
 
-
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#mgz-contact-form', formId: 'mgz-contact-form' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
