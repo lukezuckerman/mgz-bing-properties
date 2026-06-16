@@ -4,22 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MGZ Properties | Off-Campus Student Housing Near Binghamton University</title>
-<meta name="description" content="MGZ Properties offers fully furnished, utilities-included student housing near Binghamton University. Two premium off-campus homes available for the 2027-2028 school year. Tour today.">
+<meta name="description" content="MGZ Properties offers fully furnished student housing near Binghamton University. Two premium off-campus homes available for the 2027-2028 school year.">
 <meta name="keywords" content="Binghamton University student housing, off campus housing Binghamton NY, furnished student rentals Binghamton, BU off campus apartments, student houses for rent Binghamton">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --cream: #F4F4F4;
-    --dark: #111111;
-    --green: #005A43;
-    --green-light: #00724F;
-    --green-pale: #E6F0ED;
+    --cream: #F5F6F8;
+    --dark: #1B2A4A;
+    --green: #1B2A4A;
+    --green-light: #2E4470;
+    --green-pale: #EDF0F5;
     --gold: #333333;
     --gold-light: #555555;
-    --text-muted: #6B6B6B;
-    --border: #D8D8D8;
+    --text-muted: #6B7280;
+    --border: #D8DCE6;
   }
 
   html { scroll-behavior: smooth; }
@@ -47,12 +47,9 @@
   }
 
   .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--green);
-    letter-spacing: 0.01em;
     text-decoration: none;
+    display: flex;
+    align-items: center;
   }
 
   .nav-links {
@@ -91,8 +88,8 @@
     text-align: center;
     padding: 8rem 2rem 5rem;
     background:
-      radial-gradient(ellipse at 20% 50%, rgba(0,90,67,0.07) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 20%, rgba(0,90,67,0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 20% 50%, rgba(27,42,74,0.07) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(27,42,74,0.04) 0%, transparent 50%),
       var(--cream);
     position: relative;
     overflow: hidden;
@@ -203,7 +200,7 @@
     font-size: 1.6rem;
     font-weight: 700;
     color: var(--green);
-    background: rgba(0,90,67,0.1);
+    background: rgba(27,42,74,0.08);
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -416,13 +413,13 @@
   }
 
   .amenity-tag {
-    background: rgba(0,90,67,0.08);
+    background: rgba(27,42,74,0.08);
     color: var(--green);
     font-size: 0.78rem;
     font-weight: 500;
     padding: 0.3rem 0.75rem;
     border-radius: 100px;
-    border: 1px solid rgba(0,90,67,0.15);
+    border: 1px solid rgba(27,42,74,0.15);
   }
 
   .lease-info {
@@ -474,7 +471,7 @@
 
   .feature-icon {
     width: 52px; height: 52px;
-    background: rgba(0,90,67,0.1);
+    background: rgba(27,42,74,0.08);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -602,10 +599,10 @@
   .form-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
 
   .form-error {
+    display: none;
     color: #cc0000;
     font-size: 0.82rem;
-    margin-top: 0.5rem;
-    display: none;
+    margin-bottom: 0.5rem;
   }
 
   .contact-note {
@@ -643,7 +640,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">MGZ Properties</a>
+  <a href="#" class="nav-logo"><img src="MGZ_Properties_Logo.png" alt="MGZ Properties" style="height:42px; width:auto; display:block;"></a>
   <ul class="nav-links">
     <li><a href="#properties">Properties</a></li>
     <li><a href="#why-us">Why Us</a></li>
@@ -682,11 +679,11 @@
   <div class="container">
     <span class="section-tag">Off-Campus Housing · Binghamton, NY</span>
     <h2 class="section-title">Two homes built<br>for student living</h2>
-    <p class="section-sub">Spacious, fully furnished, and utilities-included. Both properties are walking distance to downtown and minutes from BU campus.</p>
+    <p class="section-sub">Spacious, fully furnished, and recently renovated. Both properties are walking distance to downtown and minutes from BU campus.</p>
 
     <div class="properties-grid">
 
-      <!-- Property 1 : 56 Walnut -->
+      <!-- Property 1: 56 Walnut -->
       <div class="property-card">
         <div class="property-img" id="gallery1">
           <div class="gallery-slide active"><img src="walnut%201.webp" alt="56 Walnut St exterior" loading="lazy"></div>
@@ -733,7 +730,7 @@
             <span class="amenity-tag">Driveway Parking</span>
             <span class="amenity-tag">Street Parking</span>
             <span class="amenity-tag">Near Bus Line</span>
-            <span class="amenity-tag">Walk to Bars & Restaurants</span>
+            <span class="amenity-tag">Walk to Downtown</span>
           </div>
           <div class="lease-info">
             <p><strong>Lease:</strong> June 1, 2027 – May 23, 2028</p>
@@ -743,7 +740,7 @@
         </div>
       </div>
 
-      <!-- Property 2 : 23 Seminary -->
+      <!-- Property 2: 23 Seminary -->
       <div class="property-card">
         <div class="property-img" id="gallery2">
           <div class="gallery-slide active"><img src="23S%20Front.webp" alt="23 Seminary Ave exterior" loading="lazy"></div>
@@ -787,7 +784,7 @@
             <span class="amenity-tag">XL Common Areas</span>
             <span class="amenity-tag">Flexible Layout</span>
             <span class="amenity-tag">Near Bus Line</span>
-            <span class="amenity-tag">Walk to Bars & Restaurants</span>
+            <span class="amenity-tag">Walk to Downtown</span>
           </div>
           <div class="lease-info">
             <p><strong>Lease:</strong> Beginning June 1, 2027</p>
@@ -806,7 +803,7 @@
   <div class="container">
     <span class="section-tag">Why MGZ Properties</span>
     <h2 class="section-title">Everything included.<br>Nothing to worry about.</h2>
-    <p class="section-sub">Parents can rest easy and students can focus on school. We handle utilities, furnishings, and maintenance so you don't have to.</p>
+    <p class="section-sub">Parents can rest easy and students can focus on school. We handle furnishings and maintenance so you don't have to.</p>
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">
@@ -843,7 +840,6 @@
         <h3>Responsive Landlords</h3>
         <p>Locally owned and operated. We respond fast, maintain our properties well, and treat every tenant like a priority.</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -917,6 +913,7 @@
     <p style="margin: 1.5rem auto 0; max-width:560px; font-size:0.95rem; color:var(--green); font-weight:500; letter-spacing:0.02em;">
       ⚡ Off-campus housing near BU goes fast — both properties are now leasing for 2027–2028. Don't wait until it's too late.
     </p>
+
     <div class="contact-wrapper">
       <div class="form-success" id="form-success">✓ Thanks! We'll be in touch within 24 hours.</div>
       <form id="mgz-contact-form">
@@ -962,7 +959,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2026 MGZ Properties · Binghamton, NY · <a href="mailto:mgzbingpropertiesllc@gmail.com">mgzbingpropertiesllc@gmail.com</a></p>
+  <img src="MGZ_Properties_Logo.png" alt="MGZ Properties" style="height:36px; width:auto; display:block; margin:0 auto 1rem; opacity:0.5; filter:brightness(10);"><p>© 2026 MGZ Properties · Binghamton, NY · <a href="mailto:mgzbingpropertiesllc@gmail.com">mgzbingpropertiesllc@gmail.com</a></p>
 </footer>
 
 <script>
@@ -1007,27 +1004,22 @@
     const btn = document.getElementById('submit-btn');
     const errorEl = document.getElementById('form-error');
     const successEl = document.getElementById('form-success');
-
     btn.textContent = 'Sending...';
     btn.disabled = true;
     errorEl.style.display = 'none';
-
-    const data = new FormData(this);
-
     try {
       const response = await fetch('https://formspree.io/f/xbdeqppd', {
         method: 'POST',
-        body: data,
+        body: new FormData(this),
         headers: { 'Accept': 'application/json' }
       });
-
       if (response.ok) {
         this.style.display = 'none';
         successEl.style.display = 'block';
       } else {
-        throw new Error('Server error');
+        throw new Error('error');
       }
-    } catch (err) {
+    } catch {
       errorEl.style.display = 'block';
       btn.textContent = 'Send Inquiry';
       btn.disabled = false;
