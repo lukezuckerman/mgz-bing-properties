@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQs | MGZ Properties | Binghamton Student Housing</title>
+<meta name="description" content="Frequently asked questions about MGZ Properties student housing in Binghamton, NY.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F6F8;
+    --dark: #1B2A4A;
+    --green: #1B2A4A;
+    --green-light: #2E4470;
+    --green-pale: #EDF0F5;
+    --text-muted: #6B7280;
+    --border: #D8DCE6;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(245,246,248,0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .nav-logo { text-decoration: none; display: flex; align-items: center; }
+  .nav-logo img { height: 42px; width: auto; display: block; }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--green); }
+  .nav-cta { background: var(--green); color: #fff !important; padding: 0.5rem 1.2rem; border-radius: 100px; }
+  .nav-cta:hover { background: var(--green-light) !important; }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--dark);
+    color: #fff;
+    padding: 8rem 2rem 5rem;
+    text-align: center;
+  }
+
+  .page-header p {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 1rem;
+  }
+
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .page-header .sub {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.6);
+    max-width: 500px;
+    margin: 0 auto;
+    font-weight: 300;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  /* FAQ CONTENT */
+  .faq-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+  .faq-category {
+    margin-bottom: 3.5rem;
+  }
+
+  .faq-category-title {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .faq-category-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 1.25rem 0;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: color 0.2s;
+  }
+
+  .faq-question:hover { color: var(--green-light); }
+
+  .faq-icon {
+    flex-shrink: 0;
+    width: 22px; height: 22px;
+    border: 1.5px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    transition: all 0.2s;
+  }
+
+  .faq-item.open .faq-icon {
+    background: var(--green);
+    border-color: var(--green);
+    color: #fff;
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    display: none;
+    padding: 0 0 1.5rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  .faq-item.open .faq-answer { display: block; }
+
+  /* PLACEHOLDER NOTICE */
+  .placeholder-notice {
+    background: rgba(27,42,74,0.06);
+    border: 1.5px dashed var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .placeholder-notice p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  .placeholder-notice strong { color: var(--green); }
+
+  /* CTA */
+  .faq-cta {
+    background: var(--dark);
+    color: #fff;
+    border-radius: 16px;
+    padding: 3rem;
+    text-align: center;
+    margin-top: 4rem;
+  }
+
+  .faq-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .faq-cta p { color: rgba(255,255,255,0.6); font-size: 0.95rem; margin-bottom: 1.5rem; }
+
+  .faq-cta a {
+    display: inline-block;
+    background: #fff;
+    color: var(--dark);
+    padding: 0.85rem 2rem;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+  }
+
+  .faq-cta a:hover { background: var(--cream); }
+
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.82rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  footer a:hover { color: #fff; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1rem; }
+    .nav-links { display: none; }
+    .faq-content { padding: 3rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="MGZ%20Properties%20Logo.png" alt="MGZ Properties">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#properties">Properties</a></li>
+    <li><a href="index.html#why-us">Why Us</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <p>MGZ Properties · Binghamton, NY</p>
+  <h1>Frequently Asked<br>Questions</h1>
+  <p class="sub">Everything you need to know about renting with MGZ Properties.</p>
+</div>
+
+<!-- FAQ CONTENT -->
+<div class="faq-content">
+
+  <div class="placeholder-notice">
+    <p><strong>Coming Soon</strong> — FAQ content will be added here shortly. Check back soon or <a href="index.html#contact" style="color:var(--green);">contact us</a> with any questions in the meantime.</p>
+  </div>
+
+  <!-- LEASING -->
+  <div class="faq-category">
+    <p class="faq-category-title">Leasing</p>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        When is the lease start date?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Answer coming soon.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How long is the lease term?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Answer coming soon.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Is a security deposit required?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Answer coming soon.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Can I sublease my room over the summer?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Answer coming soon.</div>
+    </div>
+  </div>
+
+  <!-- PROPERTY -->
+  <div class="faq-category">
+    <p class="faq-category-title">Property & Furnishings</p>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What furniture is included?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Answer coming soon.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Are pets allowed?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Answer coming soon.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Is parking available?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Answer coming soon.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Can 23 Seminary Ave really be split into two units?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Answer coming soon.</div>
+    </div>
+  </div>
+
+  <!-- PAYMENTS -->
+  <div class="faq-category">
+    <p class="faq-category-title">Payments & Utilities</p>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How is rent paid?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Answer coming soon.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What utilities are tenants responsible for?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Answer coming soon.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Is WiFi included?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Answer coming soon.</div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="faq-category">
+    <p class="faq-category-title">Application Process</p>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How do I apply?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Answer coming soon.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Can I schedule a tour?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Answer coming soon.</div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How quickly do properties fill up?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">Answer coming soon.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="faq-cta">
+    <h2>Still have questions?</h2>
+    <p>We're happy to help. Reach out and we'll get back to you within 24 hours.</p>
+    <a href="index.html#contact">Contact Us</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <img src="MGZ%20Properties%20Logo.png" alt="MGZ Properties" style="height:32px; width:auto; display:block; margin:0 auto 1rem; opacity:0.4; filter:brightness(10);">
+  <p>© 2026 MGZ Properties · Binghamton, NY · <a href="mailto:mgzbingpropertiesllc@gmail.com">mgzbingpropertiesllc@gmail.com</a> · <a href="faq.html">FAQs</a></p>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    item.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
