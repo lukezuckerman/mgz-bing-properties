@@ -177,6 +177,75 @@
 
   .hero h1 em { font-style: normal; color: var(--green); }
 
+  .hero-banner {
+    background: var(--dark);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    max-width: 800px;
+    width: 100%;
+    margin-bottom: 2rem;
+    box-shadow: 0 20px 60px rgba(27,42,74,0.25);
+  }
+
+  .hero-banner-logo {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 2rem;
+    flex-shrink: 0;
+  }
+
+  .hero-banner-logo img {
+    height: 70px;
+    width: auto;
+    display: block;
+  }
+
+  .hero-banner-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+
+  .hero-banner-text h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  .hero-banner-sub {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.85);
+    text-decoration: underline;
+    margin-top: 0.6rem;
+    font-weight: 500;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .hero-banner { flex-direction: column; }
+    .hero-banner-logo { padding: 1.25rem; }
+  }
+
+
   .hero p {
     font-size: 1.15rem;
     color: var(--text-muted);
@@ -706,9 +775,16 @@
 
 <!-- HERO -->
 <section class="hero">
-  <span class="hero-tag">Now Leasing for 2027–2028 · Binghamton University</span>
-  <h1>Binghamton Living:<br><em>How it Should be Done</em></h1>
-  <p>Two fully furnished, recently renovated homes near downtown Binghamton — move-in ready and built for groups. The off-campus experience you actually want.</p>
+  <div class="hero-banner">
+    <div class="hero-banner-logo">
+      <img src="MGZ%20Properties%20Logo.png" alt="MGZ Properties">
+    </div>
+    <div class="hero-banner-text">
+      <h1>Binghamton University<br>Off Campus Student Housing</h1>
+      <p class="hero-banner-sub">Now Leasing For the 2027–2028 School Year</p>
+    </div>
+  </div>
+  <p class="hero-description">Two fully furnished, recently renovated homes near downtown Binghamton — move-in ready and built for groups. The off-campus experience you actually want.</p>
   <div class="hero-buttons">
     <a href="#properties" class="btn-primary">View Properties</a>
     <button onclick="openModal()" class="btn-secondary">Request a Showing</button>
