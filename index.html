@@ -855,7 +855,7 @@
 
       <!-- Property 1: 56 Walnut -->
       <div class="property-card">
-        <div class="property-img" id="gallery1">
+        <div class="property-img" id="gallery1" onclick="window.location.href='walnut.html'" style="cursor:pointer;">
           <div class="gallery-slide active"><img src="walnut%201.webp" alt="56 Walnut St exterior" loading="lazy"></div>
           <div class="gallery-slide"><img src="Walnut%20Entry.webp" alt="Entry" loading="lazy"></div>
           <div class="gallery-slide"><img src="Walnut%20Dining%202.webp" alt="Dining room" loading="lazy"></div>
@@ -866,8 +866,8 @@
           <div class="gallery-slide"><img src="Walnut%20Bed%203.webp" alt="Bedroom 3" loading="lazy"></div>
           <div class="gallery-slide"><img src="Walnut%20Bathroom%201.webp" alt="Bathroom 1" loading="lazy"></div>
           <div class="gallery-slide"><img src="Walnut%20Bathroom%202.webp" alt="Bathroom 2" loading="lazy"></div>
-          <button class="gallery-btn prev" onclick="changeSlide('gallery1',-1)">&#8249;</button>
-          <button class="gallery-btn next" onclick="changeSlide('gallery1',1)">&#8250;</button>
+          <button class="gallery-btn prev" onclick="event.stopPropagation(); changeSlide('gallery1',-1)">&#8249;</button>
+          <button class="gallery-btn next" onclick="event.stopPropagation(); changeSlide('gallery1',1)">&#8250;</button>
           <div class="gallery-dots" id="gallery1-dots"></div>
           <span class="property-badge">Now Renting</span>
         </div>
@@ -901,7 +901,7 @@
 
       <!-- Property 2: 23 Seminary -->
       <div class="property-card">
-        <div class="property-img" id="gallery2">
+        <div class="property-img" id="gallery2" onclick="window.location.href='seminary.html'" style="cursor:pointer;">
           <div class="gallery-slide active"><img src="23S%20Front.webp" alt="23 Seminary Ave exterior" loading="lazy"></div>
           <div class="gallery-slide"><img src="23S%20Kitchen2.webp" alt="Downstairs kitchen" loading="lazy"></div>
           <div class="gallery-slide"><img src="23S%20Living2.webp" alt="Downstairs living room" loading="lazy"></div>
@@ -910,8 +910,8 @@
           <div class="gallery-slide"><img src="23S%20Kitchen1.webp" alt="Upstairs kitchen" loading="lazy"></div>
           <div class="gallery-slide"><img src="23S%20Living1.webp" alt="Upstairs living room" loading="lazy"></div>
           <div class="gallery-slide"><img src="23S%20Bed1.webp" alt="Bedroom" loading="lazy"></div>
-          <button class="gallery-btn prev" onclick="changeSlide('gallery2',-1)">&#8249;</button>
-          <button class="gallery-btn next" onclick="changeSlide('gallery2',1)">&#8250;</button>
+          <button class="gallery-btn prev" onclick="event.stopPropagation(); changeSlide('gallery2',-1)">&#8249;</button>
+          <button class="gallery-btn next" onclick="event.stopPropagation(); changeSlide('gallery2',1)">&#8250;</button>
           <div class="gallery-dots" id="gallery2-dots"></div>
           <span class="property-badge">Now Renting</span>
         </div>
