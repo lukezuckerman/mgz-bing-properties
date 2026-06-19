@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MGZ Properties | Off-Campus Student Housing Near Binghamton University</title>
-<meta name="description" content="MGZ Properties offers fully furnished student housing near Binghamton University. Two premium off-campus homes available for the 2027-2028 school year.">
+<meta name="description" content="MGZ Properties offers fully furnished, recently renovated student housing near Binghamton University. Two premium off-campus homes available for the 2027-2028 school year.">
 <meta name="keywords" content="Binghamton University student housing, off campus housing Binghamton NY, furnished student rentals Binghamton, BU off campus apartments, student houses for rent Binghamton">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -16,10 +16,9 @@
     --green: #1B2A4A;
     --green-light: #2E4470;
     --green-pale: #EDF0F5;
-    --gold: #333333;
-    --gold-light: #555555;
     --text-muted: #6B7280;
     --border: #D8DCE6;
+    --star: #E8A93C;
   }
 
   html { scroll-behavior: smooth; }
@@ -32,11 +31,12 @@
     line-height: 1.7;
   }
 
+  /* NAV */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    background: rgba(249,245,239,0.95);
+    background: rgba(245,246,248,0.95);
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
     padding: 0 2rem;
@@ -46,16 +46,14 @@
     height: 68px;
   }
 
-  .nav-logo {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-  }
+  .nav-logo { text-decoration: none; display: flex; align-items: center; }
+  .nav-logo img { height: 42px; width: auto; display: block; }
 
   .nav-links {
     display: flex;
     gap: 2rem;
     list-style: none;
+    align-items: center;
   }
 
   .nav-links a {
@@ -65,20 +63,59 @@
     font-weight: 500;
     letter-spacing: 0.03em;
     transition: color 0.2s;
+    cursor: pointer;
   }
 
   .nav-links a:hover { color: var(--green); }
+
+  .nav-dropdown { position: relative; }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: 140%;
+    left: 0;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    min-width: 200px;
+    padding: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav-dropdown-menu a {
+    display: block;
+    padding: 0.6rem 0.9rem;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    color: var(--dark);
+  }
+
+  .nav-dropdown-menu a:hover { background: var(--green-pale); color: var(--green); }
 
   .nav-cta {
     background: var(--green);
     color: #fff !important;
     padding: 0.5rem 1.2rem;
     border-radius: 100px;
-    transition: background 0.2s !important;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
   }
 
-  .nav-cta:hover { background: var(--green-light) !important; color: #fff !important; }
+  .nav-cta:hover { background: var(--green-light) !important; }
 
+  /* HERO */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -126,7 +163,6 @@
     padding: 0.4rem 1rem;
     border-radius: 100px;
     margin-bottom: 1.5rem;
-    animation: fadeUp 0.6s ease both;
   }
 
   .hero h1 {
@@ -137,7 +173,6 @@
     color: var(--dark);
     max-width: 750px;
     margin-bottom: 1.5rem;
-    animation: fadeUp 0.6s 0.1s ease both;
   }
 
   .hero h1 em { font-style: normal; color: var(--green); }
@@ -148,16 +183,9 @@
     max-width: 500px;
     margin-bottom: 2.5rem;
     font-weight: 300;
-    animation: fadeUp 0.6s 0.2s ease both;
   }
 
-  .hero-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    animation: fadeUp 0.6s 0.3s ease both;
-  }
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 
   .btn-primary {
     background: var(--green);
@@ -168,6 +196,9 @@
     font-weight: 500;
     font-size: 0.95rem;
     transition: background 0.2s, transform 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
   }
 
   .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); }
@@ -186,13 +217,7 @@
 
   .btn-secondary:hover { border-color: var(--dark); transform: translateY(-2px); }
 
-  .hero-stats {
-    display: flex;
-    gap: 3rem;
-    margin-top: 4rem;
-    animation: fadeUp 0.6s 0.4s ease both;
-  }
-
+  .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; }
   .stat-item { text-align: center; }
 
   .stat-num {
@@ -246,6 +271,92 @@
     font-weight: 300;
   }
 
+  /* ABOUT US */
+  #about { background: #fff; }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    align-items: center;
+  }
+
+  .about-text p {
+    color: var(--text-muted);
+    font-size: 1.02rem;
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+  }
+
+  .about-text a {
+    color: var(--green);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--green);
+  }
+
+  .about-stat-card {
+    background: var(--dark);
+    color: #fff;
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    text-align: center;
+  }
+
+  .about-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .about-stat-label {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.02em;
+  }
+
+  /* TESTIMONIALS */
+  #testimonials { background: var(--cream); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .testimonial-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem;
+  }
+
+  .stars {
+    color: var(--star);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+  }
+
+  .testimonial-card p {
+    font-size: 1rem;
+    color: var(--dark);
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .testimonial-author {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--green);
+  }
+
+  /* PROPERTIES */
   #properties { background: #fff; }
 
   .properties-grid {
@@ -263,18 +374,9 @@
     background: #ffffff;
   }
 
-  .property-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
-  }
+  .property-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); }
 
-  .property-img {
-    width: 100%;
-    height: 280px;
-    position: relative;
-    overflow: hidden;
-    background: #111;
-  }
+  .property-img { width: 100%; height: 280px; position: relative; overflow: hidden; background: #111; }
 
   .gallery-slide {
     position: absolute;
@@ -285,18 +387,8 @@
     z-index: 0;
   }
 
-  .gallery-slide.active {
-    opacity: 1;
-    pointer-events: auto;
-    z-index: 1;
-  }
-
-  .gallery-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+  .gallery-slide.active { opacity: 1; pointer-events: auto; z-index: 1; }
+  .gallery-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
   .gallery-btn {
     position: absolute;
@@ -365,18 +457,9 @@
     margin-bottom: 0.25rem;
   }
 
-  .property-city {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-bottom: 1.25rem;
-  }
+  .property-city { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; }
 
-  .property-price {
-    display: flex;
-    align-items: baseline;
-    gap: 0.4rem;
-    margin-bottom: 1.5rem;
-  }
+  .property-price { display: flex; align-items: baseline; gap: 0.4rem; margin-bottom: 1.5rem; }
 
   .price-num {
     font-family: 'Playfair Display', serif;
@@ -395,22 +478,10 @@
     border-bottom: 1px solid var(--border);
   }
 
-  .spec {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.9rem;
-    color: var(--text-muted);
-  }
-
+  .spec { display: flex; align-items: center; gap: 0.4rem; font-size: 0.9rem; color: var(--text-muted); }
   .spec svg { width: 18px; height: 18px; stroke: var(--green); fill: none; stroke-width: 1.5; }
 
-  .amenities {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.75rem;
-  }
+  .amenities { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem; }
 
   .amenity-tag {
     background: rgba(27,42,74,0.08);
@@ -424,7 +495,7 @@
 
   .lease-info {
     background: var(--green-pale);
-    border: 1px solid rgba(0,90,67,0.15);
+    border: 1px solid rgba(27,42,74,0.15);
     border-radius: 10px;
     padding: 1rem 1.1rem;
     margin-bottom: 1.5rem;
@@ -448,67 +519,13 @@
 
   .property-cta:hover { background: var(--green-light); }
 
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.25rem;
-    margin-top: 3.5rem;
-  }
-
-  .feature-card {
-    padding: 2rem 1.25rem;
-    border: 1px solid var(--border);
-    border-radius: 40px;
-    background: #fff;
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .feature-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
-
-  .feature-icon {
-    width: 52px; height: 52px;
-    background: rgba(27,42,74,0.08);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
-
-  .feature-icon svg { width: 24px; height: 24px; stroke: var(--green); fill: none; stroke-width: 1.5; }
-
-  .feature-card h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--dark);
-    margin-bottom: 0.4rem;
-  }
-
-  .feature-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
-
-  @media (max-width: 900px) {
-    .features-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-
+  /* LOCATION */
   #location { background: var(--dark); color: #fff; }
   #location .section-title { color: #fff; }
   #location .section-sub { color: rgba(255,255,255,0.55); }
 
-  .location-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    margin-top: 3.5rem;
-    align-items: center;
-  }
-
+  .location-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3.5rem; align-items: center; }
   .location-items { display: flex; flex-direction: column; gap: 1.5rem; }
-
   .location-item { display: flex; align-items: flex-start; gap: 1rem; }
 
   .location-dot {
@@ -526,48 +543,90 @@
   .location-item h4 { font-size: 0.95rem; font-weight: 500; color: #fff; margin-bottom: 0.2rem; }
   .location-item p { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
 
-  #contact { background: var(--cream); }
-
-  .contact-wrapper {
-    max-width: 600px;
-    margin: 3.5rem auto 0;
-    background: #fff;
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 2.5rem;
-  }
-
-  .form-success {
+  /* MODAL */
+  .modal-overlay {
     display: none;
-    text-align: center;
-    padding: 2rem;
-    color: var(--green);
-    font-size: 1.05rem;
-    font-weight: 500;
+    position: fixed;
+    inset: 0;
+    background: rgba(27,42,74,0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
   }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal-box {
+    background: #fff;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 2.5rem;
+    position: relative;
+    animation: modalIn 0.25s ease;
+  }
+
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(10px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: var(--cream);
+    border: none;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .modal-close:hover { background: var(--border); }
+
+  .modal-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-box .modal-sub { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.75rem; }
+
+  .form-success { display: none; text-align: center; padding: 2rem 0; color: var(--green); font-size: 1.05rem; font-weight: 500; }
 
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-  .form-group { margin-bottom: 1.25rem; }
+  .form-group { margin-bottom: 1.1rem; }
 
   .form-group label {
     display: block;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     font-weight: 500;
     color: var(--text-muted);
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
   }
 
   .form-group input,
   .form-group select,
   .form-group textarea {
     width: 100%;
-    padding: 0.75rem 1rem;
+    padding: 0.7rem 0.9rem;
     border: 1.5px solid var(--border);
     border-radius: 10px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     color: var(--dark);
     background: var(--cream);
     outline: none;
@@ -578,58 +637,46 @@
   .form-group select:focus,
   .form-group textarea:focus { border-color: var(--green); }
 
-  .form-group textarea { resize: vertical; min-height: 110px; }
+  .form-group textarea { resize: vertical; min-height: 90px; }
 
   .form-submit {
     width: 100%;
     background: var(--green);
     color: #fff;
     border: none;
-    padding: 1rem;
+    padding: 0.9rem;
     border-radius: 10px;
     font-family: 'DM Sans', sans-serif;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
-    margin-top: 0.5rem;
+    transition: background 0.2s;
+    margin-top: 0.4rem;
   }
 
-  .form-submit:hover { background: var(--green-light); transform: translateY(-2px); }
-  .form-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+  .form-submit:hover { background: var(--green-light); }
+  .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 
-  .form-error {
-    display: none;
-    color: #cc0000;
-    font-size: 0.82rem;
-    margin-bottom: 0.5rem;
-  }
+  .form-error { display: none; color: #cc0000; font-size: 0.8rem; margin-bottom: 0.5rem; }
 
-  .contact-note {
-    text-align: center;
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    margin-top: 1rem;
-  }
-
+  /* FOOTER */
   footer {
     background: var(--dark);
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.4);
     text-align: center;
-    padding: 2rem;
+    padding: 2.5rem 2rem 2rem;
     font-size: 0.85rem;
   }
 
-  footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+  footer img { height: 32px; width: auto; display: block; margin: 0 auto 1rem; opacity: 0.4; filter: brightness(10); }
+  footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+  footer a:hover { color: #fff; }
 
   @media (max-width: 768px) {
     .properties-grid { grid-template-columns: 1fr; }
     .location-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .testimonials-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .hero-stats { gap: 2rem; }
     .nav-links { display: none; }
@@ -640,12 +687,20 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo"><img src="MGZ%20Properties%20Logo.png" alt="MGZ Properties" style="height:42px; width:auto; display:block;"></a>
+  <a href="index.html" class="nav-logo">
+    <img src="MGZ%20Properties%20Logo.png" alt="MGZ Properties">
+  </a>
   <ul class="nav-links">
-    <li><a href="#properties">Properties</a></li>
-    <li><a href="#why-us">Why Us</a></li>
-    <li><a href="#location">Location</a></li>
-    <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li class="nav-dropdown">
+      <a>Properties ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="walnut.html">56 Walnut Street</a>
+        <a href="seminary.html">23 Seminary Avenue</a>
+      </div>
+    </li>
+    <li><a href="tenant-info.html">Tenant Info</a></li>
+    <li><a onclick="openModal()" class="nav-cta">Request a Showing</a></li>
   </ul>
 </nav>
 
@@ -656,7 +711,7 @@
   <p>Two fully furnished, recently renovated homes near downtown Binghamton — move-in ready and built for groups. The off-campus experience you actually want.</p>
   <div class="hero-buttons">
     <a href="#properties" class="btn-primary">View Properties</a>
-    <a href="#contact" class="btn-secondary">Get in Touch</a>
+    <button onclick="openModal()" class="btn-secondary">Request a Showing</button>
   </div>
   <div class="hero-stats">
     <div class="stat-item">
@@ -670,6 +725,45 @@
     <div class="stat-item">
       <span class="stat-num">✓</span>
       <span class="stat-label">Prime Downtown Location</span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT US -->
+<section id="about">
+  <div class="container">
+    <span class="section-tag">About MGZ Properties</span>
+    <h2 class="section-title">Run by alumni who<br>get it.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>MGZ Properties is a boutique student housing company owned and operated by Binghamton University alumni. Having been students ourselves, we understand what renters value most: responsive communication, well-maintained homes, and a hassle-free living experience.</p>
+        <p>Our properties are centrally located, thoughtfully renovated, and fully furnished to help students feel at home from day one. We take pride in providing attentive service and treating our tenants with the same level of care and respect we would expect ourselves.</p>
+        <p>See what some of our past tenants have to say about their experience with MGZ Properties below, or <a href="#testimonials">read their reviews here</a>.</p>
+      </div>
+      <div class="about-stat-card">
+        <span class="about-stat-num">92%</span>
+        <span class="about-stat-label">of surveyed tenants rated our maintenance response a 4 or 5 out of 5</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <span class="section-tag">Tenant Testimonials</span>
+    <h2 class="section-title">What our tenants say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Very communicative, prompt with maintenance requests, and made everything smooth and stress-free."</p>
+        <div class="testimonial-author">Former Tenant</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Great location, spacious rooms. Loved the house!"</p>
+        <div class="testimonial-author">Former Tenant</div>
+      </div>
     </div>
   </div>
 </section>
@@ -709,18 +803,9 @@
             <span class="price-label">/ person / month</span>
           </div>
           <div class="property-specs">
-            <div class="spec">
-              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-              5 Bedrooms
-            </div>
-            <div class="spec">
-              <svg viewBox="0 0 24 24"><path d="M4 12h16M4 6h16M4 18h7"/></svg>
-              2 Bathrooms
-            </div>
-            <div class="spec">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              12-Month
-            </div>
+            <div class="spec"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>5 Bedrooms</div>
+            <div class="spec"><svg viewBox="0 0 24 24"><path d="M4 12h16M4 6h16M4 18h7"/></svg>2 Bathrooms</div>
+            <div class="spec"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12-Month</div>
           </div>
           <div class="amenities">
             <span class="amenity-tag">Fully Furnished</span>
@@ -728,8 +813,6 @@
             <span class="amenity-tag">Smart TV</span>
             <span class="amenity-tag">Outdoor Deck</span>
             <span class="amenity-tag">Driveway Parking</span>
-            <span class="amenity-tag">Street Parking</span>
-            <span class="amenity-tag">Near Bus Line</span>
             <span class="amenity-tag">Walk to Downtown</span>
           </div>
           <div class="lease-info">
@@ -764,26 +847,15 @@
             <span class="price-label">/ person / month</span>
           </div>
           <div class="property-specs">
-            <div class="spec">
-              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
-              8 Bedrooms
-            </div>
-            <div class="spec">
-              <svg viewBox="0 0 24 24"><path d="M4 12h16M4 6h16M4 18h7"/></svg>
-              4 Bathrooms
-            </div>
-            <div class="spec">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              12-Month
-            </div>
+            <div class="spec"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>8 Bedrooms</div>
+            <div class="spec"><svg viewBox="0 0 24 24"><path d="M4 12h16M4 6h16M4 18h7"/></svg>4 Bathrooms</div>
+            <div class="spec"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12-Month</div>
           </div>
           <div class="amenities">
             <span class="amenity-tag">Fully Furnished</span>
             <span class="amenity-tag">Recently Renovated</span>
             <span class="amenity-tag">2 Full Kitchens</span>
-            <span class="amenity-tag">XL Common Areas</span>
             <span class="amenity-tag">Flexible Layout</span>
-            <span class="amenity-tag">Near Bus Line</span>
             <span class="amenity-tag">Walk to Downtown</span>
           </div>
           <div class="lease-info">
@@ -798,52 +870,6 @@
   </div>
 </section>
 
-<!-- WHY US -->
-<section id="why-us" style="background: var(--cream);">
-  <div class="container">
-    <span class="section-tag">Why MGZ Properties</span>
-    <h2 class="section-title">Everything included.<br>Nothing to worry about.</h2>
-    <p class="section-sub">Parents can rest easy and students can focus on school. We handle furnishings and maintenance so you don't have to.</p>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
-        <h3>Recently Renovated</h3>
-        <p>Both properties have been thoughtfully updated — modern kitchens, renovated bathrooms, and hardwood floors throughout.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-        </div>
-        <h3>100% Fully Furnished</h3>
-        <p>Every bedroom comes with a bed, dresser, and desk. Common areas fully equipped. Just bring your clothes and move in.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <h3>Prime Binghamton Location</h3>
-        <p>Walk to downtown restaurants, bars, and the BU campus bus line. A 10-minute drive gets you to campus.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <h3>Perfect for Groups</h3>
-        <p>Lock in a house with your friend group. 23 Seminary Ave even splits into two separate 4-bed units — ideal for two groups of four.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        </div>
-        <h3>Responsive Landlords</h3>
-        <p>Locally owned and operated. We respond fast, maintain our properties well, and treat every tenant like a priority.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- LOCATION -->
 <section id="location">
   <div class="container">
@@ -853,40 +879,20 @@
     <div class="location-grid">
       <div class="location-items">
         <div class="location-item">
-          <div class="location-dot">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div>
-            <h4>10 Minutes to Binghamton University</h4>
-            <p>A quick drive to BU's main campus — manageable even for 8am classes.</p>
-          </div>
+          <div class="location-dot"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div><h4>10 Minutes to Binghamton University</h4><p>A quick drive to BU's main campus — manageable even for 8am classes.</p></div>
         </div>
         <div class="location-item">
-          <div class="location-dot">
-            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg>
-          </div>
-          <div>
-            <h4>BU Campus Bus Line</h4>
-            <p>Both properties are a short walk to the Binghamton University bus line — no car needed.</p>
-          </div>
+          <div class="location-dot"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/></svg></div>
+          <div><h4>BU Campus Bus Line</h4><p>Both properties are a short walk to the Binghamton University bus line — no car needed.</p></div>
         </div>
         <div class="location-item">
-          <div class="location-dot">
-            <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
-          </div>
-          <div>
-            <h4>Walk to Downtown Binghamton</h4>
-            <p>Restaurants, coffee shops, bars, and more — all within easy walking distance of both properties.</p>
-          </div>
+          <div class="location-dot"><svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg></div>
+          <div><h4>Walk to Downtown Binghamton</h4><p>Restaurants, coffee shops, bars, and more — all within easy walking distance.</p></div>
         </div>
         <div class="location-item">
-          <div class="location-dot">
-            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div>
-            <h4>A True College Town</h4>
-            <p>Binghamton has everything a BU student needs — and MGZ Properties puts you right in the middle of it.</p>
-          </div>
+          <div class="location-dot"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><h4>A True College Town</h4><p>Binghamton has everything a BU student needs — and MGZ Properties puts you right in the middle of it.</p></div>
         </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:1rem;">
@@ -903,66 +909,70 @@
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container" style="text-align: center;">
-    <span class="section-tag">Schedule a Tour · Apply Now</span>
-    <h2 class="section-title">Ready to make it yours?</h2>
-    <p class="section-sub" style="margin: 0 auto;">Both properties lease quickly every year. Fill out the form and we'll be in touch within 24 hours to answer questions or schedule a tour.</p>
-
-    <p style="margin: 1.5rem auto 0; max-width:560px; font-size:0.95rem; color:var(--green); font-weight:500; letter-spacing:0.02em;">
-      ⚡ Off-campus housing near BU goes fast — both properties are now leasing for 2027–2028. Don't wait until it's too late.
-    </p>
-
-    <div class="contact-wrapper">
-      <div class="form-success" id="form-success">✓ Thanks! We'll be in touch within 24 hours.</div>
-      <form id="mgz-contact-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label>First Name</label>
-            <input type="text" name="first_name" placeholder="Jane" required>
-          </div>
-          <div class="form-group">
-            <label>Last Name</label>
-            <input type="text" name="last_name" placeholder="Smith">
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Email Address</label>
-          <input type="email" name="email" placeholder="jane@binghamton.edu" required>
-        </div>
-        <div class="form-group">
-          <label>Phone Number</label>
-          <input type="tel" name="phone" placeholder="(555) 000-0000">
-        </div>
-        <div class="form-group">
-          <label>Property Interest</label>
-          <select name="property">
-            <option value="">Select a property...</option>
-            <option>56 Walnut St — 5 Bedroom</option>
-            <option>23 Seminary Ave — 8 Bedroom (full home)</option>
-            <option>23 Seminary Ave — 4 Bedroom unit</option>
-            <option>Both / Not Sure Yet</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Message</label>
-          <textarea name="message" placeholder="Tell us a bit about your group size, move-in timeline, or any questions you have..."></textarea>
-        </div>
-        <div class="form-error" id="form-error">Something went wrong. Please try again.</div>
-        <button type="submit" class="form-submit" id="submit-btn">Send Inquiry</button>
-        <p class="contact-note">We typically respond within 24 hours.</p>
-      </form>
-    </div>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
-  <img src="MGZ%20Properties%20Logo.png" alt="MGZ Properties" style="height:36px; width:auto; display:block; margin:0 auto 1rem; opacity:0.5; filter:brightness(10);"><p>© 2026 MGZ Properties · Binghamton, NY · <a href="mailto:mgzbingpropertiesllc@gmail.com">mgzbingpropertiesllc@gmail.com</a></p>
+  <img src="MGZ%20Properties%20Logo.png" alt="MGZ Properties">
+  <p>© 2026 MGZ Properties · Binghamton, NY · <a href="mailto:mgzbingpropertiesllc@gmail.com">mgzbingpropertiesllc@gmail.com</a> · <a href="tenant-info.html">Tenant Info</a></p>
 </footer>
 
+<!-- REQUEST A SHOWING MODAL -->
+<div class="modal-overlay" id="showing-modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h2>Request a Showing</h2>
+    <p class="modal-sub">Fill out the form and we'll be in touch within 24 hours to schedule a tour or answer questions.</p>
+    <div class="form-success" id="form-success">✓ Thanks! We'll be in touch within 24 hours.</div>
+    <form id="mgz-contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" name="first_name" placeholder="Jane" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" name="last_name" placeholder="Smith">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="email" placeholder="jane@binghamton.edu" required>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" placeholder="(555) 000-0000">
+      </div>
+      <div class="form-group">
+        <label>Property Interest</label>
+        <select name="property">
+          <option value="">Select a property...</option>
+          <option>56 Walnut St — 5 Bedroom</option>
+          <option>23 Seminary Ave — 8 Bedroom (full home)</option>
+          <option>23 Seminary Ave — 4 Bedroom unit</option>
+          <option>Both / Not Sure Yet</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" placeholder="Tell us about your group size, move-in timeline, or any questions..."></textarea>
+      </div>
+      <div class="form-error" id="form-error">Something went wrong. Please try again.</div>
+      <button type="submit" class="form-submit" id="submit-btn">Send Request</button>
+    </form>
+  </div>
+</div>
+
 <script>
+  // ── Modal ──────────────────────────────────────────────
+  function openModal() {
+    document.getElementById('showing-modal').classList.add('open');
+  }
+  function closeModal() {
+    document.getElementById('showing-modal').classList.remove('open');
+  }
+  document.getElementById('showing-modal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
   // ── Gallery ──────────────────────────────────────────────
   function initGallery(id) {
     const gallery = document.getElementById(id);
@@ -1016,12 +1026,10 @@
       if (response.ok) {
         this.style.display = 'none';
         successEl.style.display = 'block';
-      } else {
-        throw new Error('error');
-      }
+      } else { throw new Error('error'); }
     } catch {
       errorEl.style.display = 'block';
-      btn.textContent = 'Send Inquiry';
+      btn.textContent = 'Send Request';
       btn.disabled = false;
     }
   });
