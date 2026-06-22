@@ -6,7 +6,7 @@
 <title>MGZ Properties | Off-Campus Student Housing Near Binghamton University</title>
 <meta name="description" content="MGZ Properties offers fully furnished, recently renovated student housing near Binghamton University. Two premium off-campus homes available for the 2027-2028 school year.">
 <meta name="keywords" content="Binghamton University student housing, off campus housing Binghamton NY, furnished student rentals Binghamton, BU off campus apartments, student houses for rent Binghamton">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -24,7 +24,7 @@
   html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Epilogue', sans-serif;
     background: var(--cream);
     color: var(--dark);
     font-size: 16px;
@@ -46,8 +46,14 @@
     height: 68px;
   }
 
-  .nav-logo { text-decoration: none; display: flex; align-items: center; }
-  .nav-logo img { height: 42px; width: auto; display: block; }
+  .nav-logo-text {
+    text-decoration: none;
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--dark);
+  }
 
   .nav-links {
     display: flex;
@@ -110,7 +116,7 @@
     border: none;
     font-size: 0.9rem;
     font-weight: 500;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Epilogue', sans-serif;
   }
 
   .nav-cta:hover { background: var(--green-light) !important; }
@@ -166,7 +172,7 @@
   }
 
   .hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Source Serif 4', serif;
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 700;
     line-height: 1.1;
@@ -177,60 +183,64 @@
 
   .hero h1 em { font-style: normal; color: var(--green); }
 
-  .hero-banner {
+  .hero-banner-large {
     background: var(--dark);
-    border-radius: 16px;
-    overflow: hidden;
-    display: flex;
-    align-items: stretch;
-    max-width: 800px;
+    border-radius: 24px;
+    padding: 3rem 3rem 2.5rem;
+    max-width: 720px;
     width: 100%;
-    margin-bottom: 2rem;
-    box-shadow: 0 20px 60px rgba(27,42,74,0.25);
-  }
-
-  .hero-banner-logo {
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem 2rem;
-    flex-shrink: 0;
-  }
-
-  .hero-banner-logo img {
-    height: 70px;
-    width: auto;
-    display: block;
-  }
-
-  .hero-banner-text {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 24px 70px rgba(27,42,74,0.28);
     text-align: center;
   }
 
-  .hero-banner-text h1 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: clamp(1.1rem, 2.2vw, 1.5rem);
-    font-weight: 700;
+  .hero-banner-logo-img {
+    height: 48px;
+    width: auto;
+    display: block;
+    margin: 0 auto 1.5rem;
+    filter: brightness(0) invert(1);
+  }
+
+  .hero-banner-large h1 {
+    font-family: 'Source Serif 4', serif;
+    font-style: normal;
+    font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+    font-weight: 600;
     color: #fff;
-    line-height: 1.35;
+    line-height: 1.3;
     margin: 0;
   }
 
-  .hero-banner-sub {
-    font-size: 0.82rem;
+  .hero-banner-checks {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .hero-banner-check {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
     color: rgba(255,255,255,0.85);
-    text-decoration: underline;
-    margin-top: 0.6rem;
     font-weight: 500;
   }
 
+  .hero-banner-check .check-mark {
+    color: #fff;
+    background: rgba(255,255,255,0.15);
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
 
   .hero-preview-grid {
     display: grid;
@@ -272,19 +282,14 @@
   .hero-preview-body { padding: 0.9rem 1.1rem; }
 
   .hero-preview-name {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Source Serif 4', serif;
     font-size: 0.98rem;
-    font-weight: 700;
+    font-weight: 600;
     color: var(--dark);
     margin-bottom: 0.2rem;
   }
 
   .hero-preview-meta { font-size: 0.8rem; color: var(--text-muted); }
-
-  @media (max-width: 600px) {
-    .hero-preview-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-    .hero-preview-img { height: 100px; }
-  }
 
   .hero-description {
     font-size: 1.1rem;
@@ -296,10 +301,11 @@
   }
 
   @media (max-width: 600px) {
-    .hero-banner { flex-direction: column; }
-    .hero-banner-logo { padding: 1.25rem; }
+    .hero-preview-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .hero-preview-img { height: 100px; }
+    .hero-banner-large { padding: 2rem 1.5rem; }
+    .hero-banner-checks { flex-direction: column; gap: 0.85rem; align-items: flex-start; padding-left: 0.5rem; }
   }
-
 
   .hero p {
     font-size: 1.15rem;
@@ -322,7 +328,7 @@
     transition: background 0.2s, transform 0.15s;
     border: none;
     cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Epilogue', sans-serif;
   }
 
   .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); }
@@ -345,7 +351,7 @@
   .stat-item { text-align: center; }
 
   .stat-num {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Source Serif 4', serif;
     font-size: 1.6rem;
     font-weight: 700;
     color: var(--green);
@@ -380,7 +386,7 @@
   }
 
   .section-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Source Serif 4', serif;
     font-size: clamp(1.8rem, 4vw, 2.8rem);
     font-weight: 700;
     color: var(--dark);
@@ -429,7 +435,7 @@
   }
 
   .about-stat-num {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Source Serif 4', serif;
     font-size: 4rem;
     font-weight: 700;
     line-height: 1;
@@ -574,7 +580,7 @@
   .property-body { padding: 1.75rem; }
 
   .property-address {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Source Serif 4', serif;
     font-size: 1.4rem;
     font-weight: 700;
     color: var(--dark);
@@ -586,7 +592,7 @@
   .property-price { display: flex; align-items: baseline; gap: 0.4rem; margin-bottom: 1.5rem; }
 
   .price-num {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Source Serif 4', serif;
     font-size: 2rem;
     font-weight: 700;
     color: var(--green);
@@ -719,7 +725,7 @@
   .modal-close:hover { background: var(--border); }
 
   .modal-box h2 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Source Serif 4', serif;
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
@@ -749,7 +755,7 @@
     padding: 0.7rem 0.9rem;
     border: 1.5px solid var(--border);
     border-radius: 10px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Epilogue', sans-serif;
     font-size: 0.92rem;
     color: var(--dark);
     background: var(--cream);
@@ -770,7 +776,7 @@
     border: none;
     padding: 0.9rem;
     border-radius: 10px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Epilogue', sans-serif;
     font-size: 0.95rem;
     font-weight: 500;
     cursor: pointer;
@@ -811,9 +817,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">
-    <img src="MGZ%20Properties%20Logo.png" alt="MGZ Properties">
-  </a>
+  <a href="index.html" class="nav-logo-text">MGZ Properties</a>
   <ul class="nav-links">
     <li><a href="#about">About Us</a></li>
     <li class="nav-dropdown">
@@ -830,15 +834,25 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-banner">
-    <div class="hero-banner-logo">
-      <img src="MGZ%20Properties%20Logo.png" alt="MGZ Properties">
-    </div>
-    <div class="hero-banner-text">
-      <h1>Binghamton University<br>Off Campus Student Housing</h1>
-      <p class="hero-banner-sub">Now Leasing For the 2027–2028 School Year</p>
+  <div class="hero-banner-large">
+    <img src="MGZ%20Properties%20Logo.png" alt="MGZ Properties" class="hero-banner-logo-img">
+    <h1>Binghamton University<br>Off-Campus Student Housing</h1>
+    <div class="hero-banner-checks">
+      <div class="hero-banner-check">
+        <span class="check-mark">✓</span>
+        <span>Recently Renovated</span>
+      </div>
+      <div class="hero-banner-check">
+        <span class="check-mark">✓</span>
+        <span>Fully Furnished</span>
+      </div>
+      <div class="hero-banner-check">
+        <span class="check-mark">✓</span>
+        <span>Prime Downtown Location</span>
+      </div>
     </div>
   </div>
+
   <p class="hero-description">Two fully furnished, recently renovated homes near downtown Binghamton — move-in ready and built for groups. The off-campus experience you actually want.</p>
 
   <div class="hero-preview-grid">
@@ -865,20 +879,6 @@
   <div class="hero-buttons">
     <a href="#properties" class="btn-primary">View Properties</a>
     <button onclick="openModal()" class="btn-secondary">Request a Showing</button>
-  </div>
-  <div class="hero-stats">
-    <div class="stat-item">
-      <span class="stat-num">✓</span>
-      <span class="stat-label">Recently Renovated</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">✓</span>
-      <span class="stat-label">Fully Furnished</span>
-    </div>
-    <div class="stat-item">
-      <span class="stat-num">✓</span>
-      <span class="stat-label">Prime Downtown Location</span>
-    </div>
   </div>
 </section>
 
