@@ -43,8 +43,14 @@
     height: 68px;
   }
 
-  .nav-logo { text-decoration: none; display: flex; align-items: center; }
-  .nav-logo img { height: 42px; width: auto; display: block; }
+  .nav-logo {
+    text-decoration: none;
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--dark);
+  }
 
   .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
 
@@ -406,7 +412,7 @@
     font-size: 0.85rem;
   }
 
-  footer img { height: 32px; width: auto; display: block; margin: 0 auto 1rem; opacity: 0.4; filter: brightness(10); }
+  
   footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
   footer a:hover { color: #fff; }
 
@@ -422,9 +428,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="index.html" class="nav-logo">
-    <img src="MGZ%20Properties%20Logo.png" alt="MGZ Properties">
-  </a>
+  <a href="index.html" class="nav-logo">MGZ Properties</a>
   <ul class="nav-links">
     <li><a href="index.html#about">About Us</a></li>
     <li class="nav-dropdown">
@@ -544,7 +548,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <img src="MGZ%20Properties%20Logo.png" alt="MGZ Properties">
+  <p style="font-family: 'Source Serif 4', serif; font-size: 1rem; font-weight: 600; color: rgba(255,255,255,0.7); margin-bottom: 0.75rem;">MGZ Properties</p>
   <p>© 2026 MGZ Properties · Binghamton, NY · <a href="mailto:mgzbingpropertiesllc@gmail.com">mgzbingpropertiesllc@gmail.com</a> · <a href="tenant-info.html">Tenant Info</a></p>
 </footer>
 
